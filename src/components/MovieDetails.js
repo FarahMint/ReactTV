@@ -26,7 +26,7 @@ export default class MovieDetails extends Component {
       this.setState({
         movie: jsondata
       });
-      console.log(this.state.movie);
+      // console.log(this.state.movie);
     } catch (err) {
       console.log(err);
     }

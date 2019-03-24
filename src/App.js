@@ -29,7 +29,7 @@ class App extends Component {
         loading: !prevState.loading,
         movies
       }));
-      console.log(this.state.movies);
+      // console.log(this.state.movies);
     });
     this.setState({ loading: true });
   }
