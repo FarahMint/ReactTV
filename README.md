@@ -1,69 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PRINT SCREEN SHOWCASE DIFFERENT STEP WHEN FETCHING DATA AND PERSIST IT IN THE LOCAL STORAGE
+PS: I need to work on the UI
 
-## Available Scripts
 
-In the project directory, you can run:
+ /* STEP 1 --landing page before search */
+![1_landing_page_no_search](https://user-images.githubusercontent.com/18241226/57694366-6e7bbc00-7643-11e9-8726-0c5c1de89eba.png)
 
-### `npm start`
+/* STEP 2 --search movies */
+![2_search_movie_landing_page_type_query](https://user-images.githubusercontent.com/18241226/57694367-6f145280-7643-11e9-96a3-672d482c3d2b.png)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+/* STEP 3 -- search movies result - persist data in LS  */
+![3_search_movie_1_step1](https://user-images.githubusercontent.com/18241226/57694789-8e5faf80-7644-11e9-9e62-fa6bac9c5de5.png)
+ 
+ /* STEP 4 -- select movie   */
+![4_select_movie_step](https://user-images.githubusercontent.com/18241226/57694668-3fb21580-7644-11e9-94d4-f8ace7877dd7.png)
 
-### `npm test`
+/* STEP 5 -- selected movie  - persist data in LS  */
+![5_selected_movie](https://user-images.githubusercontent.com/18241226/57694670-3fb21580-7644-11e9-9323-533aafd9f464.png)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+/* STEP 6 -- selected movie    */
+![6_selected_movie_1](https://user-images.githubusercontent.com/18241226/57694671-404aac00-7644-11e9-9309-26efcf375c37.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+/* STEP 7 -- selected movies  - persist data in LS  */
+![7_selected_movie_2](https://user-images.githubusercontent.com/18241226/57694672-40e34280-7644-11e9-9f6e-03ec8089369d.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+/* STEP 8 --new search movies - movies keys data in LS update  */
+![8_research_movie_2](https://user-images.githubusercontent.com/18241226/57694673-40e34280-7644-11e9-931c-bd52440d1b45.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+/* STEP 9 -- all selected movies  - persist data in LS  */
+![9_selected_movie_3](https://user-images.githubusercontent.com/18241226/57694674-40e34280-7644-11e9-8d54-c1a98e1c0ab5.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# ReactTV
