@@ -12,6 +12,7 @@
   --mainGreen: #00d573;
   --mainRose: #e71d36;
   --mainYellow: #ff9f1c;
+  --mainBlue: #3b5998;
 }
 
 body {
@@ -42,7 +43,7 @@ input {
   transition: border .5s linear;
 }
 input:focus {
-  border-bottom: 2px solid var(--mainRose);
+  border-bottom: 2px solid var(--mainBlue);
   
 }
 
@@ -53,10 +54,15 @@ input:focus {
   border: 1px solid var(--mainWhite);
   cursor: pointer;
   outline: none;
-  background: var(--mainBlack);
+  background: var(--mainBlue);
   color: var(--mainWhite);
   font-size: 3rem;
- 
+  transition: color .5s linear;
+}
+.icon-search:hover {
+  background: var(--mainGreen);
+  color: var(--mainWhite);
+  
 }
 
 

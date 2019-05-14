@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
   return (
     <div>
        <div className="main-container">
-      { (selection && selection.length > 0 )? <h1>your selection</h1> :  <p>Star selecting your favorite movies</p>
+      { (selection && selection.length > 0 )? <h1>your selection</h1> :  <h1>Select your favorite movies</h1>
       }
 
     
