@@ -1,13 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Search from "./Search";
+import MovieItem from "./MovieItem";
 
-// get our fontawesome imports
-import { faStar, faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
-// import { faStar, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+ 
 
-export default function MovieList(props) {
+const MovieList=(props) =>{
   const { movies } = props;
 
   const { handleChange, text, submitForm } = props;
@@ -23,39 +21,15 @@ export default function MovieList(props) {
       </div>
 
       <div className="list__container">
-        {movies.map(item => {
-          return (
-            <div key={item.id} className="movie__card">
-              <Link to={`/${item.id}`}>
-                <img
-                  src={`http://image.tmdb.org/t/p/w185/${item.poster_path}`}
-                  alt={item.title}
-                />
-              </Link>
-              <div className="movie__desc">
-                {/* <Link to={`/${item.id}`}>
-                  <button>see more details</button>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="icon icon-right"
-                  />
-                </Link> */}
-                {/* <h1>{item.title}</h1> */}
-                <p>
-                  <FontAwesomeIcon icon={faHeart} className="icon-heart" />
-                </p>
-                <p>
-                  <FontAwesomeIcon icon={faBookmark} className="icon-heart" />
-                </p>
-                <p>
-                  <FontAwesomeIcon icon={faStar} className="icon-star" />
-                  {item.vote_average}
-                </p>
-              </div>
-            </div>
-          );
+        { movies && movies.map(item => {
+          return <MovieItem 
+          key={item.id}  
+          item={item}
+           addSelection={props.addSelection}      
+           />
         })}
       </div>
     </React.Fragment>
   );
 }
+export default MovieList;

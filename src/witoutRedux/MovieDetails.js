@@ -51,10 +51,8 @@ export default class MovieDetails extends Component {
           <Link to={`/`}>
             <FontAwesomeIcon className="icon" icon={faArrowLeft} />
           </Link>
-           
 
           <div className="card__container">
-
             <img
               src={`http://image.tmdb.org/t/p/w185/${poster_path}`}
               alt={title}
