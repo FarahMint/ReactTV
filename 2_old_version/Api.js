@@ -29,14 +29,3 @@ export const grabSelectedMovie = id => {
       // return result;
     });
 };
-
-//  -----------------------------------------------
-// GET POSITION OF RECIPES LIST TO SCROLL AFTER SEARCH
-//  -----------------------------------------------
-
-export const  position = () => {
-  const movieList = document.querySelector(".tab-content");
-
-  const offsetTop = movieList.offsetTop;
-  window.scrollTo(0, offsetTop + 50);
-};

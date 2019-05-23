@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route
+import { BrowserRouter, Route, 
+// Switch, 
+// Redirect
 } from "react-router-dom";
-
-import { grabAll, search, position } from "./Api";
-import Spinner from "./components/Spinner/Spinner";
-import Home from "./components/Home/Home"
-// import MovieList from "./components/Movies/MovieList";
-
-import Navigation from "./components/Navigation/Navigation";
-import MovieDetails from "./components/Movies/MovieDetails/MovieDetails";
-import MovieSelection from "./components/Movies/MoviesSelection/MovieSelection";
-
 import "./App.css";
+ 
+// import API from "./Api";
+import { grabAll, search } from "./Api";
+import Spinner from "./components/Spinner";
+import MovieList from "./components/MovieList";
+
+import Navigation from "./components/Navigation";
+import MovieDetails from "./components/MovieDetails";
+import MovieSelection from "./components/MovieSelection";
+
 
 class App extends Component {
   state = {
     loading: false,
     movies: [],
     searchTerm: "",
-    selection:[],
-
-    prevScrollpos: window.pageYOffset,
-    visible: true
+    id: "",
+    selection:[]
   };
 
   // ------------------------------------
@@ -37,14 +37,12 @@ if(movies){
     this.setState({ movies });
 } else{
   
-    grabAll(this.state.searchTerm)
-    .then(movies => {
+    grabAll(this.state.searchTerm).then(movies => {
       this.setState(prevState => ({
-      loading: !prevState.loading,
+        loading: !prevState.loading,
        movies
-      })
-      );
-    }).catch(err=> console.log(err));
+      }));
+    });
     this.setState({ loading: true });
 }
 
@@ -67,7 +65,9 @@ if(movies){
 
         movies
       }));
-      //  console.log(this.state.movies) 
+      //  console.log(this.state.movies)
+      
+    
     });
   };
 
@@ -78,13 +78,38 @@ if(movies){
     this.setState(prevState => ({
       loading: !prevState.loading,
       searchTerm: ""
-    }));     
-    
-    position();
+    }));
+   
+      
   };
 
+  //  if form submited =true display result otherwise display default
 
+  componentDidMount() {
+    this.latestMovies();
+    //    const json = localStorage.getItem("movies");
+    // const movies = JSON.parse(json);
+    // this.setState({ movies });
+
+       const jsonSelection = localStorage.getItem("selection");
+    const selection = JSON.parse(jsonSelection);
+    this.setState({ selection });
+       
+  // const movies= localStorage.getItem('movies') ;
+  // this.setState({ movies});
+   
+
+  }
+
+  componentDidUpdate(prevState, prevProps){
+  const movies = JSON.stringify(this.state.movies);
+  const selection = JSON.stringify(this.state.selection);
+    // assign to local storage
+    localStorage.setItem("movies", movies);
+    localStorage.setItem("selection", selection);
+  }
  
+
     // ------------------------------------
   // add selection movies
   // ------------------------------------
@@ -103,6 +128,10 @@ if(movies){
 // console.log(this.state.favorite)
   }
 
+
+   
+
+
   // ------------------------------------
   // delete movies selected
   // ------------------------------------
@@ -116,74 +145,29 @@ if(movies){
     })
   }
 
-
-  // ------------------------------------
-  // navbar visibility 
-  // ------------------------------------
-
-  handleScroll = () => {
-    const { prevScrollpos } = this.state;
-  
-    const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollpos < currentScrollPos;
-  
-    this.setState({
-      prevScrollpos: currentScrollPos,
-      visible
-    });
-  };
-
-  
-
-
-  componentDidMount() {
-    this.latestMovies();
-  
-
-       const jsonSelection = localStorage.getItem("selection");
-    const selection = JSON.parse(jsonSelection);
-    this.setState({ selection });
-       
- 
-
-  window.addEventListener("scroll", this.handleScroll);
-  
-  }
-
-  componentDidUpdate(prevState, prevProps){
-  const movies = JSON.stringify(this.state.movies);
-  const selection = JSON.stringify(this.state.selection);
-    // assign to local storage
-    localStorage.setItem("movies", movies);
-    localStorage.setItem("selection", selection);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
- 
-
-
-
-
   render() {
 
  
-    const { movies, selection, visible } = this.state;
- 
+    const { movies, selection } = this.state;
+
     return (
       <React.Fragment>
        <BrowserRouter>
         <div className="main-container">
-        <Navigation 
-         selection={selection}
-        visible={ visible  }/>
-      {this.state.loading ? <Spinner /> : ""}  
+        <Navigation  selection={selection}/>
+        
+ 
+
+          {this.state.loading ? <Spinner /> : ""}
+  
+         
+         
               <Route
                 exact
                 path="/"
+                // component={MovieList}
                 render={props => (
-                  <Home
+                  <MovieList
                     {...props}
                     movies={movies}
                     text={this.state.searchTerm}
@@ -194,6 +178,9 @@ if(movies){
                   />
                 )}
               />
+              {/* <Route exact path="/:id" component={MovieDetails} />} /> */}
+              {/* <Redirect from="/:id" to="/selection"/> */}
+            {/* <Route exact path="/selection" component={MovieSelection}/> */}
             <Route exact path="/:id" component={MovieDetails}/>
 
               <Route exact path='/user/selection' render={(props) => (
@@ -201,7 +188,9 @@ if(movies){
             selection={selection}
             handleDelete={this.handleDelete}
             />
-          )} />      
+          )} />
+        
+          
         </div>
         </BrowserRouter>
       </React.Fragment>

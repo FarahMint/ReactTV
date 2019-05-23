@@ -1,0 +1,17 @@
+
+/* LIST CONTAINER */
+.list__container {
+    display: grid;
+    grid-template-columns: 1fr;
+  
+    grid-gap: 1rem;
+  }
+
+
+/* with more than 650px */
+@media only screen and (min-width: 650px) {
+  .list__container {
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-gap: 1rem; */
+  }
+}

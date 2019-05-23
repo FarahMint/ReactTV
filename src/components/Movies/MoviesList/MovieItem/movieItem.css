@@ -1,0 +1,117 @@
+ .tab-1-content-inner {
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  MOVIE CARD*/
+.movie__card {
+    position:relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 0.05rem solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .movie__card a {
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+  }
+  .movie__card img {
+     
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  
+  /* OVERLAY */
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: rgba(0,0,0,.5);
+  
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+   align-items: center;
+    color:var(--mainWhite);
+      transition: all .5s linear;
+  }
+  
+  .overlay a:first-child{
+    margin-top: 50%;
+}
+
+  .overlay p{
+    border:2px dotted var(--mainWhite);
+    padding:.75rem;
+  }
+ 
+  
+  .movie__card:hover .overlay {
+    opacity: 1;
+ 
+  }
+   .overlay p:hover{
+    padding-top:1.25rem;
+  }
+
+
+  
+  /* ICON */
+
+span{ 
+    align-self: flex-end;
+    margin-top: auto;
+  }
+.icon-star {
+    color: var(--mainYellow);
+    align-self: flex-end;
+  }
+   
+  /* BTN SELECTION */
+  .btn__add-selection{
+    font-size: 1rem;
+   color: var(--mainWhite);
+   background: var(--mainGreen);
+   border: 1px solid var(--mainGreen);
+   padding:.75rem;
+   transition: all .5s linear; 
+ }
+
+
+ button .icon-bookmark {
+    font-size: 1rem;
+   color: var(--mainGreen);
+   margin-right:.25rem;
+   cursor:pointer;
+ }
+ 
+  .btn__add-selection:hover {
+   color: var(--mainGreen);
+   background:var(--mainWhite);
+   border:none;
+   /* align-self:flex-end; */
+   padding:1rem;
+ }
+  
+ @media only screen and (min-width: 1000px) {
+  .main-container {
+    max-width: 100%;
+  }
+  .movie__card img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+ 
+}

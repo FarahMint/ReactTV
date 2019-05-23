@@ -1,0 +1,24 @@
+ .tab-2-content-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+ .tab-2-content-bottom {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.tab-2-content-bottom .icon-bookmark,
+.tab-2-content-bottom .icon-TV,
+.tab-2-content-bottom .icon-laptop{
+    font-size: 2rem;
+    color:var(--mainWhite);
+}
