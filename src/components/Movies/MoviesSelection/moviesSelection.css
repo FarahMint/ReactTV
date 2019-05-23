@@ -1,9 +1,9 @@
 
-.middle{
+.middle h1{
   display:flex;
   justify-content: center;
   align-items: center;
-  margin-top: 45%;
+  margin-top: 25%;
 }
 
 .btn__remove-selection{
