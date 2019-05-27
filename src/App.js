@@ -19,9 +19,6 @@ class App extends Component {
     movies: [],
     searchTerm: "",
     selection:[],
-
-    prevScrollpos: window.pageYOffset,
-    visible: true
   };
 
   // ------------------------------------
@@ -116,38 +113,12 @@ if(movies){
     })
   }
 
-
-  // ------------------------------------
-  // navbar visibility 
-  // ------------------------------------
-
-  handleScroll = () => {
-    const { prevScrollpos } = this.state;
-  
-    const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollpos < currentScrollPos;
-  
-    this.setState({
-      prevScrollpos: currentScrollPos,
-      visible
-    });
-  };
-
-  
-
-
   componentDidMount() {
     this.latestMovies();
-  
 
-       const jsonSelection = localStorage.getItem("selection");
+    const jsonSelection = localStorage.getItem("selection");
     const selection = JSON.parse(jsonSelection);
     this.setState({ selection });
-       
- 
-
-  window.addEventListener("scroll", this.handleScroll);
-  
   }
 
   componentDidUpdate(prevState, prevProps){
@@ -158,26 +129,33 @@ if(movies){
     localStorage.setItem("selection", selection);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
- 
+  // componentWillUnmount() {
+  //   window.removeEventListener("scroll", this.handleScroll);
+  // }
 
 
+
+  // go  to the search bar
+   // GET POSITION OF SEARCHBAR TO SCROLL TO THE POSITION
+  //  -----------------------------------------------
+
+  position = () => {
+    const searchBar = document.querySelector("#search");
+
+    const offsetTop = searchBar.offsetTop;
+    window.scrollTo(0, offsetTop - 500);
+  };
 
 
   render() {
-
- 
-    const { movies, selection, visible } = this.state;
+    const { movies, selection } = this.state;
  
     return (
       <React.Fragment>
        <BrowserRouter>
         <div className="main-container">
         <Navigation 
-         selection={selection}
-        visible={ visible  }/>
+         selection={selection}/>
       {this.state.loading ? <Spinner /> : ""}  
               <Route
                 exact
@@ -191,15 +169,22 @@ if(movies){
                     addSelection={this.addSelection}
                     performSearch={this.performSearch}
                     submitForm={this.submitForm}
+
+                    position={this.position}
                   />
                 )}
               />
-            <Route exact path="/:id" component={MovieDetails}/>
+            <Route exact path="/:id" 
+            component={MovieDetails} 
+             />
+      
 
-              <Route exact path='/user/selection' render={(props) => (
+              <Route exact path='/user/selection' 
+              render={(props) => (
             <MovieSelection  {...props} 
             selection={selection}
             handleDelete={this.handleDelete}
+          
             />
           )} />      
         </div>

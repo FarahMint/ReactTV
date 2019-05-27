@@ -12,8 +12,9 @@ const Search =(props) =>{
    
   return (
    
-      <form onSubmit={submitForm}>
+      <form onSubmit={submitForm}  id="search">
         <input
+       
           type="text"
          onChange={handleChange}
          value={text}

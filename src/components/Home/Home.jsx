@@ -30,7 +30,7 @@ backgroundImage:
         <div className="showcase-content">
 
             <h1>See what's next</h1>
-            <p>watch anywhere. cancel anytime.</p>
+            <p>search for a movie and build your own library</p>
             <Search
           submitForm={submitForm}
           handleChange={handleChange}
@@ -42,7 +42,8 @@ backgroundImage:
 
    <MoviesMenu
      movies={movies } 
-     addSelection={props.addSelection}  />
+     addSelection={props.addSelection} 
+     position={props.position} />
     
     </React.Fragment>
   );

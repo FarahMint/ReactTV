@@ -56,6 +56,33 @@ align-items: center;
   }
 }
 
+.movie__desc-details button{
+ margin-top: 1rem;
+ color: var(--mainWhite);
+ background: rgb(0, 173, 255);
+ border: 1px solid rgb(0, 173, 255);
+ padding:.75rem;
+ transition: all .5s linear; 
+  width: 25%; 
+}
+
+.movie__desc-details button .icon {
+  font-size: 1rem;
+ color: var(--mainWhite);
+ margin-left:.5rem;
+ cursor:pointer;
+}
+
+ .movie__desc-details button:hover {
+ background: var(--mainGreen);
+ border:none;
+ padding:1rem 0.15rem;
+}
+.movie__desc-details  button:hover  > .icon{
+ color: var(--mainWhite);
+
+}
+
 
 
 /* when greater than 650px */

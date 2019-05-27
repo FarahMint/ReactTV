@@ -58,7 +58,7 @@ form {
 }
  
  button{
-  border-color:transparent;
+ border:1px solid #fff;
    cursor:pointer;
  
 }

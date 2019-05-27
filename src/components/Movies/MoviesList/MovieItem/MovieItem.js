@@ -4,41 +4,61 @@ import { Link } from "react-router-dom";
 import "./movieItem.css";
 
 // get our fontawesome imports
-import { faStar, faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faBookmark, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const MovieItem=(props)=> {
     const {item}= props;
+  // console.log("overview: ",item.overview)
+  // console.log("length: ",item.overview.length)
+  const overviewShort = item.overview.length > 100 ?
+    (`${item.overview.substring(0, 100)}..`) :( item.overview)
+       
    
   return (
 <React.Fragment>
-    <div id="tab-1-content" className="tab-content-item show">
+    <div className="tab-content-item show">
       <div className="tab-1-content-inner movie__card">
-        <div>
+        <div className="sm">
             <img
                   src={`http://image.tmdb.org/t/p/w185/${item.poster_path}`}
                   alt={item.title}
                 />
             <div className="overlay">
+              <div className="lg-hidden">
+                <h3>{item.title}</h3>
+               <p>{overviewShort}</p>
+           </div>
+             
               <Link to={`/${item.id}`}>
-              <p>see more details</p>
+              <button 
+                type="button" 
+                title="see more details about this movie"
+                >details
+                <FontAwesomeIcon
+                   icon={faEye} 
+                  className="icon"
+                  title="see more details"
+                   />
+                </button>
+        
               </Link>
 
               <Link to={`/user/selection`}>
           <button 
                 type="button" 
-                className="btn__add-selection"
+                title="add it to your selection"
                 onClick={()=>props.addSelection(item)}
-                >
+                >select
           <FontAwesomeIcon
                    icon={faBookmark} 
-                  className="icon-bookmark"
+                  className="icon"
                   title="bookmark this movie"
-                   />add to selection
+                   />
           </button>
         </Link>
-
+      
         <span>
         <FontAwesomeIcon icon={faStar} className="icon-star" />
                   {item.vote_average}

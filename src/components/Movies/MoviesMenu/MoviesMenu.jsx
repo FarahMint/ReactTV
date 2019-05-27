@@ -16,7 +16,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
    
       <MovieList 
        movies={props.movies } 
-       addSelection={props.addSelection} /> 
+       addSelection={props.addSelection}
+       position={props.position} /> 
       </div>
 
       <div label="how it works">

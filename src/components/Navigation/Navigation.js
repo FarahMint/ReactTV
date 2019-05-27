@@ -10,16 +10,14 @@ import "./navigation.css"
 const Navigation =(props) =>{
   // console.log(props.selection.length) 
       const pathname = window.location.pathname;
-      let class_name="header"
+ 
   return (
      <header 
-    //  className="header"
-     className={!props.visible ?  class_name : `${class_name}--hidden`}
-     >
+    className="header">
            <FontAwesomeIcon icon={faTv} className="header-logo" title="logo react tv"/>
               <nav className="navbar">
               <ul>
-              <li>
+              <li> 
                    <NavLink 
                    to="/" 
                     className={ pathname === '/' ? 'selected' : '' } >

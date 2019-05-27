@@ -26,7 +26,11 @@
   }
   
   /* OVERLAY */
-  .overlay {
+.lg-hidden{
+  display:none;
+}
+
+.overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -39,68 +43,63 @@
     background-color: rgba(0,0,0,.5);
   
     display:flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content:center;
    align-items: center;
     color:var(--mainWhite);
       transition: all .5s linear;
   }
-  
-  .overlay a:first-child{
-    margin-top: 50%;
-}
-
-  .overlay p{
-    border:2px dotted var(--mainWhite);
-    padding:.75rem;
-  }
- 
-  
+   
   .movie__card:hover .overlay {
     opacity: 1;
  
   }
-   .overlay p:hover{
-    padding-top:1.25rem;
-  }
-
-
-  
   /* ICON */
 
 span{ 
-    align-self: flex-end;
+   align-self: flex-end;
     margin-top: auto;
   }
 .icon-star {
     color: var(--mainYellow);
-    align-self: flex-end;
+   
   }
    
-  /* BTN SELECTION */
-  .btn__add-selection{
+  /* OVERLAY BTN   */
+  .overlay a{
+    margin-bottom: auto;
+  }
+  .overlay a:first-of-type{
+    margin-right: 1rem;
+  }
+  .overlay button{
     font-size: 1rem;
    color: var(--mainWhite);
-   background: var(--mainGreen);
-   border: 1px solid var(--mainGreen);
-   padding:.75rem;
+   background: rgb(0, 173, 255);
+   border: 1px solid rgb(0, 173, 255);
+   padding:0 .25rem;
    transition: all .5s linear; 
+    width: 100%; 
  }
 
 
- button .icon-bookmark {
+
+ 
+ button .icon {
     font-size: 1rem;
-   color: var(--mainGreen);
-   margin-right:.25rem;
+   color: var(--mainWhite);
+   margin-left:.5rem;
    cursor:pointer;
  }
  
-  .btn__add-selection:hover {
-   color: var(--mainGreen);
-   background:var(--mainWhite);
+ .overlay button:hover {
+   background: var(--mainGreen);
    border:none;
-   /* align-self:flex-end; */
-   padding:1rem;
+   padding:1rem 0.15rem;
+ }
+ .overlay button:hover  > .icon{
+   color: var(--mainWhite);
+  
  }
   
  @media only screen and (min-width: 1000px) {
@@ -114,4 +113,59 @@ span{
     overflow: hidden;
   }
  
+}
+ @media only screen and (max-width: 650px) {
+.sm{
+  display: flex;
+}
+.movie__card img {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+}
+.overlay {
+  position: initial;
+  height: initial;
+  background-color: rgba(0,0,0,.5);
+opacity:1;
+  display:flex; 
+  flex-direction: column;
+}
+
+span{ 
+  align-self: flex-end;
+  order: -1;
+  margin:0;
+ }
+
+.overlay button{
+  font-size: 1.15rem;
+ padding:0 .25rem;
+ cursor:pointer;
+}
+
+.overlay a{
+  margin: 0;
+  width: 100%;
+  cursor:pointer;
+}
+.overlay a:first-of-type{
+  margin-right: 0;
+  margin-bottom: 1rem;
+  margin-top: auto;
+}
+.lg-hidden{
+  display:block; 
+}
+.lg-hidden h3{
+  text-align: center;
+ 
+
+}
+.lg-hidden p{
+ 
+  padding:0.25rem;
+}
+
+
 }
