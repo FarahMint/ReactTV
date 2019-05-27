@@ -14,7 +14,14 @@ const  MarketingMaterial =() => {
                     <p className="text-lg">
                        build your own library of tv shows &amp; movies you like or want to watch.
                     </p>
-                    <a href="https://www.google.com" className="btn btn-lg">free tool build with React.js</a>
+                    <a 
+                    href="https://github.com/FarahMint/ReactTV" 
+                    type="button" 
+                    target="_blank" 
+                     rel="noopener noreferrer"
+                     title="link to my github repo" 
+                     className="btn btn-lg">
+                         free tool build with React.js</a>
                 </div>
 
                 <div className="tab-2-content-bottom">

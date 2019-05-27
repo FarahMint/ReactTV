@@ -9,9 +9,9 @@ const MovieList=(props) =>{
  
   const { movies } = props;
 const title =  movies ? (<h1>Search TV Show Results</h1>) : 
-(<Link to="/#search"
+(<Link to="/"
 onClick={ props.position}>
-<h1>No search yet, Start searching a movie.</h1> </Link>);
+<h1>No movie searched yet...</h1> <button  type="button" title="start your search" className="btn btn-lg">Start your search</button> </Link>);
 
   //  console.log(movies)
   return (

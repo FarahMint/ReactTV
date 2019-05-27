@@ -1,5 +1,5 @@
 import React from 'react';
- 
+import { Link } from "react-router-dom";
 
 import { faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +12,11 @@ import "./moviesSelection.css";
     <React.Fragment>
       <div className="text-lg middle">
      
-      { (selection && selection.length > 0 )? <h1>your selection</h1> :  <h1>No movies selected yet</h1>
+      { (selection && selection.length > 0 )? <h1>your selection</h1> : 
+      <Link to="/"
+      onClick={ props.position}>
+       <h1>No movies selected yet...</h1><button  type="button" title="start your search" className="btn btn-lg">Start your search</button> </Link>
+   
       }</div>
 
     

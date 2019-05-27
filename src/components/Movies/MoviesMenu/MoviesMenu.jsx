@@ -29,7 +29,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
     <p  className="text-lg">
       
       Just kidding, it is free, hope you enjoy the experience. You can see my projects @ 
-        <a href="h​ttps://github.com/FarahMint">
+        <a 
+          href="https://github.com/FarahMint"
+          type="button" 
+          target="_blank" 
+           rel="noopener noreferrer"
+           title="link to my github repo" 
+        >
       <FontAwesomeIcon
                    icon={faCat} 
                   className="icon-cat"
