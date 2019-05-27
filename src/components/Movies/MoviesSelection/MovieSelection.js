@@ -12,7 +12,7 @@ import "./moviesSelection.css";
     <React.Fragment>
       <div className="text-lg middle">
      
-      { (selection && selection.length > 0 )? <h1>your selection</h1> :  <h1>Select your favorite movies</h1>
+      { (selection && selection.length > 0 )? <h1>your selection</h1> :  <h1>No movies selected yet</h1>
       }</div>
 
     
