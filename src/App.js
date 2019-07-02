@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
 import { BrowserRouter, Route
 } from "react-router-dom";
 
@@ -20,6 +22,8 @@ class App extends Component {
     searchTerm: "",
     selection:[],
   };
+
+ 
 
   // ------------------------------------
   // Display all movies
@@ -57,6 +61,7 @@ if(movies){
       searchTerm: e.target.value
     });
   };
+
   performSearch = () => {
     search(this.state.searchTerm).then(movies => {
       this.setState(prevState => ({
@@ -193,5 +198,22 @@ if(movies){
     );
   }
 }
+
+
+App.propTypes = {
+  name: PropTypes.string,
+  loading: PropTypes.bool,
+  movies: PropTypes.array,
+  searchTerm: PropTypes.string,
+  selection:PropTypes.array,
+  latestMovies :PropTypes.func,
+  handleChange :PropTypes.func,
+  performSearch:PropTypes.func,
+  submitForm :PropTypes.func,
+  addSelection:PropTypes.func,
+  handleDelete:PropTypes.func,
+  position:PropTypes.func
+};
+
 
 export default App;

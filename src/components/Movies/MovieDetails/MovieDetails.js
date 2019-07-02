@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 /* ROUTER */
 
 import { Link } from "react-router-dom";
@@ -10,11 +11,13 @@ import { faStar, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  
 import "./movieDetails.css"
-export default class MovieDetails extends Component {
+
+class MovieDetails extends Component {
   state = {
     movie: [],
     id: ""
   };
+
 
   getSelectedMovie = async () => {
     try {
@@ -86,3 +89,12 @@ export default class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  getSelectedMovie:PropTypes.func,
+  movie: PropTypes.array,
+  id: PropTypes.string
+};
+
+
+export default MovieDetails ;

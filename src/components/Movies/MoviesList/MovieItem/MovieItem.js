@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Link } from "react-router-dom";
  
 import "./movieItem.css";
@@ -70,4 +72,9 @@ const MovieItem=(props)=> {
 </React.Fragment>
   )
 }
+
+MovieItem.propTypes = {
+  MovieItem:PropTypes.func
+};
+
 export default MovieItem;
